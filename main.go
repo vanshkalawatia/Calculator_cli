@@ -6,26 +6,38 @@ func main() {
 
 	fmt.Println("Welcome to Go Calculator.")
 
-	fmt.Print("Enter the Number 1: ")
-	var num1 float64
-	fmt.Scan(&num1)
+	for true {
 
-	fmt.Print("Enter the operator from ( + ,- ,* , / ): ")
-	var operator string
-	fmt.Scan(&operator)
+		fmt.Print("Enter the operator from ( + ,- ,* , / ): ")
+		var operator string
+		fmt.Scan(&operator) // operator input for operations
 
-	fmt.Print("Enter the Number 2: ")
-	var num2 float64
-	fmt.Scan(&num2)
+		if operator == "q" {
+			fmt.Println("Good Bye.!!") // ending functionality
+			break
+		}
 
-	result, err := calculate(num1, num2, operator)
+		fmt.Print("Enter the Number 1: ") // First operant
+		var num1 float64
+		fmt.Scan(&num1)
 
-	if err == nil {
-		fmt.Printf("The result for %v %s %v = %v \n", num1, operator, num2, result)
-	} else {
-		fmt.Printf("Error: %v .\n", err)
+		fmt.Print("Enter the Number 2: ") // Second operand
+		var num2 float64
+		fmt.Scan(&num2)
+
+		result, err := calculate(num1, num2, operator)
+
+		if err == nil {
+			fmt.Printf("The result for %v %s %v = %v \n", num1, operator, num2, result)
+		} else {
+			fmt.Printf("Error: %v .\n", err)
+		}
+
+		if operator == "q" {
+			fmt.Println("Good Bye.!!")
+			break
+		}
 	}
-
 }
 
 func calculate(a float64, b float64, operator string) (float64, error) {
