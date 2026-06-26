@@ -6,7 +6,7 @@ func main() {
 
 	fmt.Println("Welcome to Go Calculator.")
 
-	for true {
+	for {
 
 		fmt.Print("Enter the operator from ( + ,- ,* , / ): ")
 		var operator string
@@ -31,11 +31,6 @@ func main() {
 			fmt.Printf("The result for %v %s %v = %v \n", num1, operator, num2, result)
 		} else {
 			fmt.Printf("Error: %v .\n", err)
-		}
-
-		if operator == "q" {
-			fmt.Println("Good Bye.!!")
-			break
 		}
 	}
 }
